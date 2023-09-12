@@ -4,6 +4,7 @@ using Corso.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Corso.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230912095920_AddedGenres")]
+    partial class AddedGenres
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,28 +24,6 @@ namespace Corso.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Corso.Core.Entities.Movies.Actor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Salary")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Actors");
-                });
 
             modelBuilder.Entity("Corso.Core.Entities.Movies.Comment", b =>
                 {
@@ -117,35 +98,6 @@ namespace Corso.Infrastructure.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Corso.Core.Entities.Movies.MovieActor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ActorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Character")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActorId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("MoviesActors");
-                });
-
             modelBuilder.Entity("GenreMovie", b =>
                 {
                     b.Property<int>("GenresId")
@@ -172,25 +124,6 @@ namespace Corso.Infrastructure.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("Corso.Core.Entities.Movies.MovieActor", b =>
-                {
-                    b.HasOne("Corso.Core.Entities.Movies.Actor", "Actor")
-                        .WithMany("MoviesActors")
-                        .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Corso.Core.Entities.Movies.Movie", "Movie")
-                        .WithMany("MoviesActors")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Actor");
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("GenreMovie", b =>
                 {
                     b.HasOne("Corso.Core.Entities.Movies.Genre", null)
@@ -206,16 +139,9 @@ namespace Corso.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Corso.Core.Entities.Movies.Actor", b =>
-                {
-                    b.Navigation("MoviesActors");
-                });
-
             modelBuilder.Entity("Corso.Core.Entities.Movies.Movie", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("MoviesActors");
                 });
 #pragma warning restore 612, 618
         }

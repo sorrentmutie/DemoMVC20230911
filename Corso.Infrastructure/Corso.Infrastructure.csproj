@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Corso.Core\Corso.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Northwind\" />
+  </ItemGroup>
+
 </Project>

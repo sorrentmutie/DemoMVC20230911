@@ -1,0 +1,11 @@
+﻿@page
+
+@model DemoRazorPages.Pages.CategoryCreationModel
+
+<form method="post">
+    Name:
+    <input asp-for="Category.Name" />
+    Description:
+    <input asp-for="Category.Description" />
+    <input type="submit" />
+</form>
