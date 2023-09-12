@@ -1,6 +1,6 @@
-
-
+using Corso.Infrastructure.Data;
 using Corso.Infrastructure.Implementations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +12,11 @@ builder.Services.AddScoped<IWelcome, Welcome>();
 builder.Services.AddScoped<IPersonData, StaticPeopleService>();
 builder.Services.AddScoped<IData<Person, Guid>,
     StaticGenericService<Person,Guid>>();
+builder.Services.AddDbContext<ApplicationDbContext>
+    (options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("MoviesConnection")
+        , x => x.MigrationsAssembly("Corso.Infrastructure"))
+    );
 
 
 var app = builder.Build();
