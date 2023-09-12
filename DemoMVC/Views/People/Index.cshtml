@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Person>
+
+<a href="/People/Create" class="btn btn-success"> Create a person </a>
+
+
+@foreach(var person in Model)
+{
+    <div class="person">
+        <h2>@person.Id</h2>
+        <h4>@person.FirstName</h4>
+        <p>@person.LastName</p>
+        <a href="/People/Details/@person.Id">Details</a>
+    </div>
+}   
