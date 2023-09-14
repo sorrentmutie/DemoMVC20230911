@@ -9,11 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.Core", "..\Corso.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.Infrastructure", "..\Corso.Infrastructure\Corso.Infrastructure.csproj", "{A7EF3C67-EDB2-4ADB-B146-75301DC07BC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoRazorPages", "..\DemoRazorPages\DemoRazorPages.csproj", "{B58B1EB9-A78C-404E-9E2E-B86CE4D62049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoRazorPages", "..\DemoRazorPages\DemoRazorPages.csproj", "{B58B1EB9-A78C-404E-9E2E-B86CE4D62049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.API", "..\Corso.API\Corso.API.csproj", "{BD1AE208-B442-4FF2-90C3-9B97B9D30F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.API", "..\Corso.API\Corso.API.csproj", "{BD1AE208-B442-4FF2-90C3-9B97B9D30F03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.APIMinimal", "..\Corso.APIMinimal\Corso.APIMinimal.csproj", "{940054AC-4312-4C3A-B0A3-F999E021AC8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.APIMinimal", "..\Corso.APIMinimal\Corso.APIMinimal.csproj", "{940054AC-4312-4C3A-B0A3-F999E021AC8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorServer", "..\Corso.BlazorServer\Corso.BlazorServer.csproj", "{A2549F31-3E1C-4172-B385-0F2CE71746E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorWASM", "..\Corso.BlazorWASM\Corso.BlazorWASM.csproj", "{27E4E14C-C221-4D17-AEFA-74592A936418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorLibrary", "..\Corso.BlazorLibrary\Corso.BlazorLibrary.csproj", "{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{940054AC-4312-4C3A-B0A3-F999E021AC8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{940054AC-4312-4C3A-B0A3-F999E021AC8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{940054AC-4312-4C3A-B0A3-F999E021AC8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2549F31-3E1C-4172-B385-0F2CE71746E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2549F31-3E1C-4172-B385-0F2CE71746E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2549F31-3E1C-4172-B385-0F2CE71746E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2549F31-3E1C-4172-B385-0F2CE71746E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E4E14C-C221-4D17-AEFA-74592A936418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E4E14C-C221-4D17-AEFA-74592A936418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E4E14C-C221-4D17-AEFA-74592A936418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E4E14C-C221-4D17-AEFA-74592A936418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

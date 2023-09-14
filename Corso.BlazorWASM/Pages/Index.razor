@@ -1,0 +1,21 @@
+﻿@page "/"
+
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+<Component1/>
+<EventList Events="@pastEvents" Title="Eventi passati"></EventList>
+
+
+@code {
+    private List<EventListElement> pastEvents =
+            new List<EventListElement>()
+                {
+            new EventListElement
+            { Id = 1, Description = "Event 34", Date = DateTime.Now.AddDays(-7), Location = "Remota" },
+            new EventListElement
+            { Id = 2, Description = "Event 35", Date = DateTime.Now.AddDays(-14), Location="Roma" }
+                };
+
+}

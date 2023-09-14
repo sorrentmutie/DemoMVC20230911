@@ -1,0 +1,19 @@
+﻿@page "/futureEvents"
+@inject IEventsData dataService
+
+<EventList Events="@events" Title="Prossimi eventi"></EventList>
+
+@code {
+    private List<EventListElement> events = 
+            new List<EventListElement>();
+
+    protected override void OnInitialized()
+    {
+        events = dataService.GetEvents().ToList();
+    }
+}
+
+
+   
+
+
