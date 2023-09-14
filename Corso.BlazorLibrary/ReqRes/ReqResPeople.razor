@@ -1,0 +1,45 @@
+﻿@inject IReqResData service
+
+<button @onclick="() => CancelRequest()" class="btn btn-danger">Cancella richiesta</button>
+<button @onclick="() => PostSomeData()" class="btn btn-info ">Crea Utente</button>
+
+@if(request != null)
+{
+    <p>@request.createdAt </p>
+}
+
+@if(people == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var person in people)
+    {
+        <p>@person.FirstName @person.LastName</p>
+        <img src="@person.avatar"/>
+    }
+}
+
+@code {
+    private List<Person>? people;
+    private ReqResRequest? request;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response =  await service.GetDataAsync();
+        people = response?.data.ToList();
+    }
+
+    private void CancelRequest()
+    {
+        service.CancelRequest();
+    }
+
+    private async Task PostSomeData()
+    {
+        request = await service.PostSomeData(
+        new ReqResRequest { name = "Mario", job = "developer"});
+    }
+
+}

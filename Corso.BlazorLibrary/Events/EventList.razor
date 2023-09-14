@@ -1,7 +1,5 @@
 ﻿<h3>@Title</h3>
 
-<button class="btn btn-success">Aggiungi Evento</button>
-
 <table class="table table-striped table-bordered table-hover">
 <thead>
     <tr>
@@ -20,7 +18,18 @@
         <td>@publicEvent.Description</td>
         <td>@publicEvent.Date</td>
         <td>@publicEvent.Location</td>
-        <td><button @onclick="() => RemoveEvent(publicEvent)" class="btn btn-danger">Elimina</button></td>
+        <td>
+            <button 
+            @onclick="() => OnEventRemoved.InvokeAsync(publicEvent)" class="btn btn-danger">Elimina</button>
+
+            <button
+            @onclick="() => OnEventUpdated.InvokeAsync(publicEvent)" class="btn btn-warning">   
+            
+            Modifica</button>
+
+        
+        </td>
+
     </tr>
 }
 </tbody>
@@ -35,9 +44,12 @@
     public List<EventListElement> Events { get; set; }
         = new List<EventListElement>();
 
-    private void RemoveEvent(EventListElement eventListElement)
-    {
-        Events.Remove(eventListElement);
-    }
+    [Parameter]
+    public EventCallback<EventListElement> OnEventRemoved { get; set; }
+
+    [Parameter]
+    public EventCallback<EventListElement> OnEventUpdated { get; set; }
+
+    
 
 }

@@ -1,0 +1,71 @@
+﻿@page "/futureEvents"
+@inject IEventsData dataService
+
+@if(currentEvent == null)
+{
+    <button class="btn btn-success" @onclick="() => AddEvent()">Aggiungi Evento</button>
+    <EventList Events="@events"
+               Title="Prossimi eventi"
+               OnEventUpdated="UpdateEvent"
+               OnEventRemoved="RemoveEvent"></EventList>
+} else
+{
+    <EventDetails selectedEvent="@currentEvent"
+         OnSave="Save" OnCancel="Cancel">
+
+    </EventDetails>
+}
+
+
+@code {
+    private List<EventListElement> events = 
+            new List<EventListElement>();
+
+    private EventListElement? currentEvent;
+
+    private void UpdateEvent(EventListElement element)
+    {
+        currentEvent = element;
+    }
+
+    private void Save(EventListElement eventListElement)
+    {
+        if(eventListElement.Id == 0)
+        {
+            events.Add(eventListElement);
+        } else
+        {
+            var el = events.FirstOrDefault(e => e.Id == eventListElement.Id);
+            if(el != null)
+            {
+                events.Remove(el);
+                events.Add(eventListElement);
+            }
+        }
+        currentEvent = null;
+    }
+
+    private void Cancel()
+    {
+        currentEvent = null;
+    }
+    private void AddEvent()
+    {
+        currentEvent = new EventListElement();
+    }
+
+    protected override void OnInitialized()
+    {
+        events = dataService.GetEvents().ToList();
+    }
+
+    private void RemoveEvent(EventListElement eventListElement)
+    {
+        events.Remove(eventListElement);
+    }
+}
+
+
+   
+
+

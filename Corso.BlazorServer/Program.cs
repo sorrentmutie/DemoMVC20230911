@@ -1,5 +1,5 @@
+using Corso.BlazorLibrary.ReqRes;
 using Corso.BlazorServer.Data;
-using Corso.BlazorServer.Services;
 using Corso.Core.Entities.Events;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
