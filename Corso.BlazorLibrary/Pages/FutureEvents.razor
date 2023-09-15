@@ -4,16 +4,16 @@
 @if(currentEvent == null)
 {
     <button class="btn btn-success" @onclick="() => AddEvent()">Aggiungi Evento</button>
-    <EventList Events="@events"
+    @* <EventList Events="@events"
                Title="Prossimi eventi"
                OnEventUpdated="UpdateEvent"
-               OnEventRemoved="RemoveEvent"></EventList>
+               OnEventRemoved="RemoveEvent"></EventList> *@
 } else
 {
-    <EventDetails selectedEvent="@currentEvent"
+   @*  <EventDetails selectedEvent="@currentEvent"
          OnSave="Save" OnCancel="Cancel">
 
-    </EventDetails>
+    </EventDetails> *@
 }
 
 

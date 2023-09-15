@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.API", "..\Corso.API\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.APIMinimal", "..\Corso.APIMinimal\Corso.APIMinimal.csproj", "{940054AC-4312-4C3A-B0A3-F999E021AC8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorServer", "..\Corso.BlazorServer\Corso.BlazorServer.csproj", "{A2549F31-3E1C-4172-B385-0F2CE71746E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorServer", "..\Corso.BlazorServer\Corso.BlazorServer.csproj", "{A2549F31-3E1C-4172-B385-0F2CE71746E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorWASM", "..\Corso.BlazorWASM\Corso.BlazorWASM.csproj", "{27E4E14C-C221-4D17-AEFA-74592A936418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorWASM", "..\Corso.BlazorWASM\Corso.BlazorWASM.csproj", "{27E4E14C-C221-4D17-AEFA-74592A936418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorLibrary", "..\Corso.BlazorLibrary\Corso.BlazorLibrary.csproj", "{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorLibrary", "..\Corso.BlazorLibrary\Corso.BlazorLibrary.csproj", "{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

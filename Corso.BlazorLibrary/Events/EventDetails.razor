@@ -1,40 +1,24 @@
-﻿<h3>Evento @selectedEvent?.Date</h3>
-@if(selectedEvent != null)
+﻿@typeparam TItem
+
+<h3>@Title</h3>
+@if(Item != null)
 {
-<EditForm Model="selectedEvent" 
-    OnValidSubmit="() => OnSave.InvokeAsync(selectedEvent)">
+<EditForm Model="Item" 
+    OnValidSubmit="() => OnSave.InvokeAsync(Item)">
 
     <DataAnnotationsValidator/>
 
-        <div class="form-group">
-            <label for="Description"> Descrizione: </label>
-            <InputText id="Description" class="form-control"
-                @bind-Value="selectedEvent.Description">
-            </InputText>
-            <ValidationMessage For="@(() => selectedEvent.Description)"></ValidationMessage>
-        </div>
+    @ChildContent
 
-        <div class="form-group">
-            <label for="Location"> Località: </label>
-            <InputText class="form-control" id="Location" @bind-Value="selectedEvent.Location">
-            </InputText>
-            <ValidationMessage For="@(() => selectedEvent.Location)"></ValidationMessage>
-        </div>
-
-        <div class="form-group">
-            <label for="Date"> Data: </label>
-            <InputDate id="Date" class="form-control" @bind-Value="selectedEvent.Date">
-            </InputDate>
-        </div>
     <button type="submit" class="btn btn-warning">Salva</button>
     <button type="button" @onclick="() => OnCancel.InvokeAsync()" class="btn btn-danger">Annulla</button>
 </EditForm>
 }
 
-
-
 @code {
-    [Parameter] public EventListElement? selectedEvent { get; set; } 
-    [Parameter] public EventCallback<EventListElement> OnSave { get; set; }
+    [Parameter] public string Title { get; set; } = "Title"; 
+    [Parameter] public TItem? Item { get; set; } 
+    [Parameter] public EventCallback<TItem> OnSave { get; set; }
     [Parameter] public EventCallback OnCancel { get; set; } 
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
 }
