@@ -1,4 +1,5 @@
 using Corso.Infrastructure.Northwind.Models;
+using DemoRazorPages.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,25 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<NorthwindContext>
     (o => o.UseSqlServer(
         builder.Configuration.GetConnectionString("Northwind")));
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+
+builder.Services.Configure<Features>
+    (Features.FirstFeature,
+     builder.Configuration.GetSection("Features:FirstFeature"));
+
+builder.Services.AddOptions<MySettingsOptions>()
+    .Bind(builder.Configuration.GetSection(
+        MySettingsOptions.ConfigurationSectionName))
+    .ValidateDataAnnotations();
+
+
+
+builder.Services.Configure<Features>
+    (Features.SecondFeature,
+     builder.Configuration.GetSection("Features:SecondFeature"));
+
+var x = new  MySettingsOptions() { Scale = 1200, Title = "Ciao", VerbosityLevel = 10};
 
 var app = builder.Build();
 

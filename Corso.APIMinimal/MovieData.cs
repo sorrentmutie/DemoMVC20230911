@@ -54,8 +54,19 @@ public class MovieData : IMovieData
 
     public async Task<IEnumerable<GenreDTO>> GetGenres()
     {
-        return await database.Genres
-            .Select(x => new GenreDTO { Id = x.Id, Name = x.Name }).ToListAsync();
+        var genres = await database.Genres.ToListAsync();
+
+        if(genres.Count == 0)
+        {
+            return new List<GenreDTO> {
+                new GenreDTO { Id = 0, Name = "No genres found" }
+            };
+
+        }
+
+
+        return genres
+            .Select(x => new GenreDTO { Id = x.Id, Name = x.Name });
     }
 
     public async Task<MovieDTO?> GetMovieById(int id)

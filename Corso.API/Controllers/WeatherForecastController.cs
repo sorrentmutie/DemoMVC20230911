@@ -1,3 +1,4 @@
+using Corso.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Corso.API.Controllers
@@ -6,28 +7,23 @@ namespace Corso.API.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
         private readonly ILogger<WeatherForecastController> _logger;
+//        private readonly IWeatherData weatherData;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger)
+             // ,IWeatherData weatherData)
         {
             _logger = logger;
+            //this.weatherData = weatherData;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> Get(
+            [FromServices] IWeatherData weatherData)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return weatherData.GetWeather().ToArray();
         }
     }
 }
