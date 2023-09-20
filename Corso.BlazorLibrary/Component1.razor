@@ -1,3 +1,16 @@
-﻿<div class="my-component">
+﻿
+@ChildContent
+
+<div class="my-component">
     This component is defined in the <strong>Corso.BlazorLibrary</strong> library.
 </div>
+
+@ChildContent2
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent2 { get; set; }
+}

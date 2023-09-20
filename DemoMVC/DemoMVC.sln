@@ -15,11 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.API", "..\Corso.API\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.APIMinimal", "..\Corso.APIMinimal\Corso.APIMinimal.csproj", "{940054AC-4312-4C3A-B0A3-F999E021AC8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorServer", "..\Corso.BlazorServer\Corso.BlazorServer.csproj", "{A2549F31-3E1C-4172-B385-0F2CE71746E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorServer", "..\Corso.BlazorServer\Corso.BlazorServer.csproj", "{A2549F31-3E1C-4172-B385-0F2CE71746E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorWASM", "..\Corso.BlazorWASM\Corso.BlazorWASM.csproj", "{27E4E14C-C221-4D17-AEFA-74592A936418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorWASM", "..\Corso.BlazorWASM\Corso.BlazorWASM.csproj", "{27E4E14C-C221-4D17-AEFA-74592A936418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corso.BlazorLibrary", "..\Corso.BlazorLibrary\Corso.BlazorLibrary.csproj", "{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corso.BlazorLibrary", "..\Corso.BlazorLibrary\Corso.BlazorLibrary.csproj", "{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsperimentiVari", "..\EsperimentiVari\EsperimentiVari.csproj", "{D208D147-0BBE-45B9-80F8-924A1E0D6618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatterMatching", "..\PatterMatching\PatterMatching.csproj", "{7C444182-789A-4A25-8233-6B94305F05BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarking", "..\Benchmarking\Benchmarking.csproj", "{35A91D75-CC6B-41B5-8978-2D25ECD429BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCA5563-135C-4983-A3DE-F96BDAD8AD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D208D147-0BBE-45B9-80F8-924A1E0D6618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D208D147-0BBE-45B9-80F8-924A1E0D6618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D208D147-0BBE-45B9-80F8-924A1E0D6618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D208D147-0BBE-45B9-80F8-924A1E0D6618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C444182-789A-4A25-8233-6B94305F05BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C444182-789A-4A25-8233-6B94305F05BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C444182-789A-4A25-8233-6B94305F05BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C444182-789A-4A25-8233-6B94305F05BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

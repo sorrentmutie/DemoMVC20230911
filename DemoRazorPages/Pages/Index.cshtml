@@ -9,6 +9,11 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+@Model.FirstKey
+@Model.SecondKey
+
+
+
 @if(Model.Categories != null && Model.Categories.Count > 0)
 {
     @foreach (var category in Model.Categories)

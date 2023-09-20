@@ -1,0 +1,136 @@
+﻿@page "/experiments"
+
+@inject IJSRuntime jsRuntime
+
+<button @onclick="() => Multiply()">Esegui moltiplicazione</button>
+<button @onclick="() => Special()">Esegui operazione</button>
+<button @onclick="() => Instance()">Esegui Instance Method</button>
+<button @onclick="() => OpenModal()">Apri modale</button>
+<button @onclick="() => OpenMap()">Apri mappa</button>
+
+@total
+
+<MyModal Id="myModal" Title="Il mio titolo"
+    OnSave="Save">
+    <ChildContent>
+        <EventDetails 
+            Title="Mio Titolo" 
+            TItem="EventListElement"  
+            Item="currentEvent" 
+            OnCancel="CancelForm" 
+            OnSave="SaveForm">
+       
+         <ChildContent>
+                <div class="form-group">
+                    <label for="Description"> Descrizione: </label>
+                    <InputText id="Description" class="form-control"
+                    @bind-Value="currentEvent.Description">
+                    </InputText>
+                    <ValidationMessage For="@(() => currentEvent.Description)"></ValidationMessage>
+                </div>
+
+                <div class="form-group">
+                    <label for="Location"> Località: </label>
+                    <InputText class="form-control" id="Location" @bind-Value="currentEvent.Location">
+                    </InputText>
+                    <ValidationMessage For="@(() => currentEvent.Location)"></ValidationMessage>
+                </div>
+
+                <div class="form-group">
+                    <label for="Date"> Data: </label>
+                    <InputDate id="Date" class="form-control" @bind-Value="currentEvent.Date">
+                    </InputDate>
+                </div>
+         </ChildContent>
+        
+        </EventDetails>
+    </ChildContent>
+</MyModal>
+
+<MyMap></MyMap>
+
+@newName
+
+@code {
+
+
+    private int total;
+    private string newName = "";
+    private FirstInteropClass? myInterop;
+    private EventListElement currentEvent
+        = new EventListElement { Id = 5, Location = "Milano",
+         Description= "Blazor Conference", Date = DateTime.Now.AddDays(7)};
+
+    protected override void OnInitialized()
+    {
+        myInterop = new FirstInteropClass(jsRuntime);
+    }
+
+    private void CancelForm(){
+    }
+
+
+    private async Task OpenMap()
+    {
+        var markers = new List<MyMarker>();
+        markers.Add(new MyMarker { Latitude = 41.99, Longitude = 11.0 });
+        markers.Add(new MyMarker {  Latitude = 42.01, Longitude = 12.0 });
+
+
+
+        await myInterop!.OpenMap(45.59836576435782, 9.357141463550647, 19, markers);
+    }
+
+    private async Task SaveForm(EventListElement eventListElement)
+    {
+        newName = eventListElement.Description!;
+        await myInterop!.CloseModalAsync();
+    }
+    private async Task Save()
+    {
+        await myInterop!.CloseModalAsync();
+    }
+
+    private async Task OpenModal()
+    {
+        await myInterop!.OpenModalAsync("myModal");
+    }
+
+    private async Task Instance()
+    {
+        await myInterop!.CallHelloHelperSayHello("Mario Rossi"); 
+    }
+
+    private async Task Special()
+    {
+        await myInterop!.ThirdFunction();
+    }
+
+    private async Task Multiply()
+    {
+        total = await myInterop!.SecondFunction(5, 6);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await myInterop!.FirstFunction("Salvatore", 1, 2);
+        }
+
+    }
+
+    [JSInvokable]
+    public static  Task<int> ReturnIntNumber()
+    {
+        return Task.FromResult(5);
+    }
+
+    [JSInvokable]
+    public static Task<string> ReturnTooltip(int id)
+    {
+        return Task.FromResult("Sede Esprinet: " + id);
+    }
+
+
+}

@@ -1,6 +1,6 @@
 ﻿using Corso.Core.Entities.Events;
 
-namespace Corso.BlazorServer.Services;
+namespace Corso.BlazorLibrary.ReqRes;
 
 public class EventsDatabaseData : IEventsData
 {
