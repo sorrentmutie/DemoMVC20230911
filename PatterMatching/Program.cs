@@ -119,6 +119,14 @@ decimal ReadOrders()
     return total;
 }
 
+decimal CalculateDiscount(Order order) => order switch
+{
+    { Items: > 10 } => order.Total * 0.1m,
+    { Items: > 5 } => order.Total * 0.05m,
+    { Total: > 500.0m } => order.Total * 0.2m,
+    null => throw new ArgumentNullException(nameof(order)),
+    _ => 0m
+};
 
 
 internal class MyOrder
@@ -128,13 +136,5 @@ internal class MyOrder
 
 
 
-decimal CalculateDiscount(Order order) => order switch
-{
-    { Items: > 10 } => order.Total * 0.1m,
-    { Items: > 5 } => order.Total * 0.05m,
-    { Total: > 500.0m} => order.Total * 0.2m,
-    null => throw new ArgumentNullException(nameof(order)),
-    _ => 0m
-};
 
 public record Order(int Items, decimal Total);

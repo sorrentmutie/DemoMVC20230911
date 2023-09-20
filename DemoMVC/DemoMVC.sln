@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsperimentiVari", "..\Esper
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatterMatching", "..\PatterMatching\PatterMatching.csproj", "{7C444182-789A-4A25-8233-6B94305F05BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarking", "..\Benchmarking\Benchmarking.csproj", "{35A91D75-CC6B-41B5-8978-2D25ECD429BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{7C444182-789A-4A25-8233-6B94305F05BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C444182-789A-4A25-8233-6B94305F05BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C444182-789A-4A25-8233-6B94305F05BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A91D75-CC6B-41B5-8978-2D25ECD429BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
